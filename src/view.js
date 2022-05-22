@@ -15,10 +15,11 @@ const Graphics = PIXI.Graphics;
 let scoreNumber;
 let attemptsNumber;
 let progressLine;
+let app;
 
 function renderView(){
-  const app = initialize()
-  playFieldContainer = createPlayField(app);
+  app = initialize()
+  playFieldContainer = createPlayField();
   fillGameField(playFieldContainer);
 }
 renderView();
@@ -55,8 +56,54 @@ function updateCounters(){
   attemptsNumber.text = model.attemptsAvailableNumber
   progressLine.width = model.progressValue
 }
+
+export function makeAnimationTiles(){
+  for(let i = model.tiles.length-1; i> 1; i--){
+    for(let j = 0; j< model.tiles[i].length; j++){
+      if(model.tiles[i][j] == null){
+        moveTilesDown(i, j);
+      }
+    }
+  }
+}
+
+function moveTilesDown(row, column){
+
+  let nullNumber = 0;
+  for(let i = row; i>0; i--){
+    if(model.tiles[i][column] == null){
+      nullNumber += 1;
+    } else {
+      break;
+    }
+  }
+  for (let i = row; i >= nullNumber; i--){ 
+    moveEachTileDown(`${[i-nullNumber]}-${[column]}`)
+  }
+}
+
+
+function moveEachTileDown(tile){
+  let pixiTileElement = playFieldContainer.children.find(el => el.name === tile)
+  if(!pixiTileElement){
+    return
+  }
+  const ticker = new PIXI.Ticker()
+  ticker.add( () => makeAStepDown(pixiTileElement))
+  ticker.start()
+  let movingCounter = 0
+  function makeAStepDown(tile){
+    if(movingCounter > 40){
+      ticker.destroy()
+    } else {
+      movingCounter += 1;
+      tile.y +=1;
+    }
+  }
+}
+
 // figures
-function createPlayField(app){
+function createPlayField(){
   
   const playFieldContainer = new PIXI.Container()
   playFieldContainer.x = 0
@@ -142,29 +189,7 @@ function createPlayField(app){
   return playFieldContainer;
 }
 
-// const blueStar = PIXI.Sprite.from(blue);
-// playFieldContainer.addChild(blueStar);
-// blueStar.width = 40;
-// blueStar.height = 40;
-// blueStar.x = 10;
-// blueStar.y = 10;
-
 // functions
-
-// app.ticker.add(moveTile)
-// let movingCounter = 0
-// function moveTile(){
-//   movingCounter += 1
-//   blueStar.y +=1;
-//   if(movingCounter > 40){
-//     app.ticker.remove(moveTile)
-//   }
-// }
-
-// function onClickDestroyTile(tile){
-//   tile.on('pointerdown', onTileClick(tile));
-// }
-
 
 function fillGameField(playFieldContainer){
   const colors = {
@@ -187,6 +212,7 @@ function fillGameField(playFieldContainer){
       star.height = 40;
       star.x = j * 41 + 20;
       star.y = i * 41 + 10;
+      star.name = `${i}-${j}`
       const coordinates = [i, j];
       star.on('pointerdown', function(){
         onTileClick(coordinates, true)
