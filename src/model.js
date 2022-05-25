@@ -1,4 +1,6 @@
-const DEFAULT_ATTEMPTS_NUMBER = 10
+const DEFAULT_ATTEMPTS_NUMBER = 10;
+const COLORS_QUANTITY = 5;
+const COLORS = ['blue', 'red', 'yellow', 'green', 'purple']
 export const model = {
   tiles: [],
   attemptsAvailableNumber: DEFAULT_ATTEMPTS_NUMBER,
@@ -7,7 +9,8 @@ export const model = {
   progressLength: 350,
   scoreValue: 0,
   pointsToWin: 400,
-  colors: ['blue', 'red', 'yellow', 'green', 'purple'],
+  colors: COLORS,
+  colorsQuantity: COLORS_QUANTITY,
   animationIsFinished: true,
   gameIsFinished: false,
   defaultAttemptsNumber: DEFAULT_ATTEMPTS_NUMBER,
@@ -16,15 +19,15 @@ export const model = {
   booster: false
 }
 
-export function createModelPlayField(){
-  model.tiles = [];
-  model.gameIsFinished = false;
-  for(let i = 0; i< model.PLAYFIELD_LENGTH; i++){
-    model.tiles.push([])
-    for(let j = 0; j< model.PLAYFIELD_LENGTH; j++){
-      const randomColor = model.colors[Math.floor((Math.random()*4))]
-      model.tiles[i].push(randomColor)
-    }
-  }
-}
-createModelPlayField()
+// export function createModelPlayField(){
+//   model.tiles = [];
+//   model.gameIsFinished = false;
+//   for(let i = 0; i< model.PLAYFIELD_LENGTH; i++){
+//     model.tiles.push([])
+//     for(let j = 0; j< model.PLAYFIELD_LENGTH; j++){
+//       const randomColor = model.colors[Math.floor((Math.random() * (COLOR_QUANTITY -1)))]
+//       model.tiles[i].push(randomColor)
+//     }
+//   }
+// }
+// createModelPlayField()

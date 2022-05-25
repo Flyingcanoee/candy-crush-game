@@ -13,8 +13,10 @@ import shuffleImage from '../../assets/shuffleImage.png'
 import boosterBombImage from '../../assets/booster-bomb.png'
 import boosterTeleportImage from '../../assets/booster-teleport.png'
 import boosterQuestionImage from '../../assets/booster-question.png'
-import {model, createModelPlayField} from '../model';
-import {onTileClick, resetCounters, makeBombBooster} from '../controller';
+import fireTileSet from '../../assets/spritesheet.json'
+import fireTiles from '../../assets/spritesheet.png'
+import {model} from '../model';
+import {onTileClick, makeBombBooster, createModelPlayField} from '../controller';
 import {startGame} from './startGame'
 import { showMessage } from "./gameIsOver";
 
@@ -27,6 +29,7 @@ let progressLine;
 let shuffleNumberValue;
 let app;
 let boosterBombBg;
+// let fire;
 const textStyle = new PIXI.TextStyle({
   fontFamily: 'Genta',
   fill: '#fff',
@@ -278,7 +281,6 @@ function createPlayField(){
 
   app.stage.addChild( startGame())
 
-
   return playFieldContainer;
 }
 
@@ -318,4 +320,38 @@ function fillGameField(playFieldContainer){
 
 export function renderGameOverMessage(result){
   app.stage.addChild(showMessage(result));
+}
+
+let fire;
+let mask;
+export function explodeTile(i, j){
+
+  // const [i, j] = coordinates;
+  const textureFire = PIXI.Texture.from(fireTiles)
+  const sheet = new PIXI.Spritesheet(textureFire, fireTileSet);
+  sheet.parse(() => {
+    fire = new PIXI.AnimatedSprite(Object.values(sheet.textures))
+    const x = (j+1)*40+5
+    const y = (i+1)*40
+    fire.anchor.set(0.5, 0.5);
+    fire.position.set(x, y);
+    fire.animationSpeed = .5;
+    fire.width = 100;
+    fire.height = 100;
+    fire.loop = false;
+    playFieldContainer.addChild(fire)
+    fire.play(); 
+    mask = createTilesContainer()
+    mask.x = 30
+    mask.y = 145
+    mask.width = 420;
+    mask.height = 420;
+    app.stage.addChild(mask)
+    fire.mask = mask;
+  });
+}
+
+export function removeExplosion(){
+  fire.destroy();
+  mask.destroy()
 }

@@ -1,0 +1,12 @@
+[
+  ["green","blue","red","red","blue","green","yellow","green","yellow","blue"],
+  ["green","red","red","blue","green","yellow","blue","yellow","green","blue"],
+  ["green","blue","yellow","red","green","red","green","yellow","green","blue"],
+  ["red","red","yellow","yellow","red","yellow","blue","red","blue","yellow"],
+  ["blue","yellow","blue","yellow","blue","blue","yellow","blue","red","red"],
+  ["yellow","green","red","blue","green","yellow","red","yellow","green","green"],
+  ["green","yellow","blue","blue","yellow","yellow","blue","green","blue","red"],
+  ["red","red","green","red","green","red","yellow","yellow","green","red"],
+  ["red","green","red","green","yellow","red","green","yellow","green","yellow"],
+  ["blue","yellow","blue","red","yellow","red","red","yellow","red","red"]
+]

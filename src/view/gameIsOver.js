@@ -1,6 +1,6 @@
 import * as PIXI from "pixi.js";
-import {model, createModelPlayField} from '../model';
-import {resetCounters} from '../controller';
+import {model } from '../model';
+import {resetCounters, createModelPlayField} from '../controller';
 
 export function showMessage(result){
   const Graphics = PIXI.Graphics;

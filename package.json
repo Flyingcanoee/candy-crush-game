@@ -3,16 +3,22 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
+    "test": "jest",
     "serve": "parcel src/index.html",
     "build": "parcel build src/index.html"
   },
   "author": "Flyingcanoee",
   "license": "ISC",
   "dependencies": {
+    "@types/jest": "^27.5.1",
+    "jest": "^28.1.0",
     "parcel": "^2.5.0",
     "pixi.js": "^6.3.2"
   },
   "devDependencies": {
+    "@babel/core": "^7.18.2",
+    "@babel/preset-env": "^7.18.2",
+    "babel-jest": "^28.1.0",
     "querystring-es3": "^0.2.1"
   }
 }
