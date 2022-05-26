@@ -1,6 +1,5 @@
 ## About the project
-
-![candy-crush-clone](C:\Users\Настя\Desktop\screen-to-gif\candy-crush-clone.gif)
+![Image alt](https://github.com/Flyingcanoee/candy-crush-game/raw/main/candy-crush-clone.gif)
 
 ## [Live Demo](link to github-pages)
 
