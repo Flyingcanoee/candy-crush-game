@@ -1,6 +1,6 @@
 const DEFAULT_ATTEMPTS_NUMBER = 10;
 const COLORS_QUANTITY = 5;
-const COLORS = ['blue', 'red', 'yellow', 'green', 'purple']
+const COLORS = ['blue', 'red', 'yellow', 'green', 'purple'];
 export const model = {
   tiles: [],
   attemptsAvailableNumber: DEFAULT_ATTEMPTS_NUMBER,
@@ -16,18 +16,5 @@ export const model = {
   defaultAttemptsNumber: DEFAULT_ATTEMPTS_NUMBER,
   shuffleNumber: 3,
   boosterRadius: 2,
-  booster: false
-}
-
-// export function createModelPlayField(){
-//   model.tiles = [];
-//   model.gameIsFinished = false;
-//   for(let i = 0; i< model.PLAYFIELD_LENGTH; i++){
-//     model.tiles.push([])
-//     for(let j = 0; j< model.PLAYFIELD_LENGTH; j++){
-//       const randomColor = model.colors[Math.floor((Math.random() * (COLOR_QUANTITY -1)))]
-//       model.tiles[i].push(randomColor)
-//     }
-//   }
-// }
-// createModelPlayField()
+  booster: false,
+};
