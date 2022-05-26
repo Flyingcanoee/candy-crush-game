@@ -1,7 +1,7 @@
 ## About the project
 ![Image alt](https://github.com/Flyingcanoee/candy-crush-game/raw/main/candy-crush-clone.gif)
 
-## [Live Demo](link to github-pages)
+## [Live Demo]([link to github-pages](https://flyingcanoee.github.io/candy-crush-game/))
 
 This is an online 2d game implemented with JavaScript + Canvas. The game logic was divided between model, view and controller. There were used such technologies as:
 
