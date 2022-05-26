@@ -1,0 +1,1 @@
+{"mappings":"AAAA,MAAM,WAAW,GAAG,IAAI,CAAC,WAAW,AAAC;AAErC,MAAM,GAAG,GAAG,IAAI,WAAW,EAAE","sources":["src/app.js"],"sourcesContent":["const Application = PIXI.Application;\r\n\r\nconst App = new Application()\r\n"],"names":[],"version":3,"file":"index.816e7b21.js.map","sourceRoot":"/__parcel_source_root/"}
